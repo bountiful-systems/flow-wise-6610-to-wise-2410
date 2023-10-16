@@ -1,0 +1,615 @@
+[
+    {
+        "id": "647d4c795f2e0a55",
+        "type": "tab",
+        "label": "Edgecore IIoT - R0_release_220927",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "aaf3bb7bd773de54",
+        "type": "serial in",
+        "z": "647d4c795f2e0a55",
+        "name": "ArduinoSerial",
+        "serial": "9efda63a52848df3",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "fa4fca1061ec5cbd",
+                "faa722cbbf359466"
+            ]
+        ]
+    },
+    {
+        "id": "fa4fca1061ec5cbd",
+        "type": "split",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "splt": "|",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "clave",
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [
+                "d56f9bd8eb74ef67"
+            ]
+        ]
+    },
+    {
+        "id": "d56f9bd8eb74ef67",
+        "type": "switch",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "property": "parts.index",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 410,
+        "y": 140,
+        "wires": [
+            [
+                "bfd783d0fee2d8bc"
+            ],
+            [
+                "c0d32e96997aedc0"
+            ],
+            [
+                "dca3ad1c7f920354"
+            ],
+            [
+                "8be9d7c41365f209"
+            ],
+            [
+                "3218661fa52baff2"
+            ],
+            [
+                "540c0a2e767b142d"
+            ],
+            [
+                "45437470643ef672"
+            ],
+            [
+                "933b462f2d9e72a3"
+            ]
+        ]
+    },
+    {
+        "id": "bfd783d0fee2d8bc",
+        "type": "change",
+        "z": "647d4c795f2e0a55",
+        "name": "Hum[%]",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload,7,6)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 60,
+        "wires": [
+            [
+                "f7326446d35ba34b"
+            ]
+        ]
+    },
+    {
+        "id": "c0d32e96997aedc0",
+        "type": "change",
+        "z": "647d4c795f2e0a55",
+        "name": "Temp[C]",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload,9,6)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 100,
+        "wires": [
+            [
+                "f414bdae99e1e56e"
+            ]
+        ]
+    },
+    {
+        "id": "dca3ad1c7f920354",
+        "type": "change",
+        "z": "647d4c795f2e0a55",
+        "name": "Pres[hPa]",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload,11,7)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 140,
+        "wires": [
+            [
+                "9f3db7dcb0c5aa61"
+            ]
+        ]
+    },
+    {
+        "id": "8be9d7c41365f209",
+        "type": "change",
+        "z": "647d4c795f2e0a55",
+        "name": "Temp2[C]",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload,10,6)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 180,
+        "wires": [
+            [
+                "a7aa36d10410e67f"
+            ]
+        ]
+    },
+    {
+        "id": "3218661fa52baff2",
+        "type": "change",
+        "z": "647d4c795f2e0a55",
+        "name": "Acc[mg]",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload,9,11)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 220,
+        "wires": [
+            [
+                "6c8a6ad90245593b"
+            ]
+        ]
+    },
+    {
+        "id": "540c0a2e767b142d",
+        "type": "change",
+        "z": "647d4c795f2e0a55",
+        "name": "Gyr[mdps]",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload,11,15)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 260,
+        "wires": [
+            [
+                "b1c678dfdb7666bd"
+            ]
+        ]
+    },
+    {
+        "id": "45437470643ef672",
+        "type": "change",
+        "z": "647d4c795f2e0a55",
+        "name": "Acc2[mg]",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload,10,10)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 300,
+        "wires": [
+            [
+                "e9e795e01aef771e"
+            ]
+        ]
+    },
+    {
+        "id": "933b462f2d9e72a3",
+        "type": "change",
+        "z": "647d4c795f2e0a55",
+        "name": "Mag[mGauss]",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload,13,9)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 340,
+        "wires": [
+            [
+                "a782af9fd2553c20"
+            ]
+        ]
+    },
+    {
+        "id": "f7326446d35ba34b",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f414bdae99e1e56e",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9f3db7dcb0c5aa61",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a7aa36d10410e67f",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6c8a6ad90245593b",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b1c678dfdb7666bd",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e9e795e01aef771e",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a782af9fd2553c20",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "faa722cbbf359466",
+        "type": "function",
+        "z": "647d4c795f2e0a55",
+        "name": "function 1",
+        "func": "var dataArray = msg.payload.split(\"|\");\nmsg.payload = {\n    \"\": dataArray[0],\n    \"Hum[%]\": dataArray[1],\n    \"Temp[C]\": dataArray[2],\n    \"Pres[hPa]\": dataArray[3],\n    \"Temp2[C]\": dataArray[4],\n    \"Acc[mg]\": dataArray[5],\n    \"Gyr[mdps]\": dataArray[6],\n    \"Acc2[mg]\": dataArray[7]\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 480,
+        "wires": [
+            [
+                "ed76c30771bd8b18",
+                "26242f352a9473ac"
+            ]
+        ]
+    },
+    {
+        "id": "ed76c30771bd8b18",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "26242f352a9473ac",
+        "type": "mqtt out",
+        "z": "647d4c795f2e0a55",
+        "name": "x-nucleo",
+        "topic": "coresys/oficina/pc1/x-nucleo-iks01a2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "bdb9800e.62a88",
+        "x": 600,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "808d91d834bdd6c6",
+        "type": "mqtt in",
+        "z": "647d4c795f2e0a55",
+        "name": "",
+        "topic": "coresys/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "bdb9800e.62a88",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 720,
+        "wires": [
+            [
+                "0bb018057366fdca"
+            ]
+        ]
+    },
+    {
+        "id": "0bb018057366fdca",
+        "type": "debug",
+        "z": "647d4c795f2e0a55",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "9efda63a52848df3",
+        "type": "serial-port",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "bdb9800e.62a88",
+        "type": "mqtt-broker",
+        "name": "Edgecore IIoT",
+        "broker": "192.168.100.2",
+        "port": "1883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
